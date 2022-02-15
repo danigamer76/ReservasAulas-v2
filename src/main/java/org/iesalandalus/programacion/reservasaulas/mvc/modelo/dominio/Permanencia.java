@@ -14,7 +14,7 @@ public abstract class Permanencia {
 	
 	public Permanencia(Permanencia permanencia) {
 		if(permanencia == null) {
-			throw new IllegalArgumentException("No se puede copiar una permanencia nula.");
+			throw new NullPointerException("ERROR: No se puede copiar una permanencia nula.");
 		}else {
 		setDia(permanencia.getDia());
 //		setTramo(permanencia.getTramo());
@@ -27,7 +27,7 @@ public abstract class Permanencia {
 	
 	private void setDia(LocalDate dia) {
 		if(dia == null) {
-			throw new IllegalArgumentException("El día de una permanencia no puede ser nulo.");
+			throw new NullPointerException("ERROR: El día de una permanencia no puede ser nulo.");
 		}else {
 			this.dia = dia;
 		}
@@ -55,7 +55,7 @@ public abstract class Permanencia {
 
 	@Override
 	public String toString() {
-		return "[dia=" + FORMATO_DIA.format(dia) + "]";
+		return "día=" + FORMATO_DIA.format(dia);
 	}
 	
 	
