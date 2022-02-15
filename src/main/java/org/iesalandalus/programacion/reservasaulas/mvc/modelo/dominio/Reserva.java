@@ -3,10 +3,10 @@ package org.iesalandalus.programacion.reservasaulas.mvc.modelo.dominio;
 import java.util.Objects;
 
 public class Reserva {
-
-	Profesor profesor;
-	Aula aula;
-	Permanencia permanencia;
+	private Profesor profesor;
+	private Aula aula;
+	private Permanencia permanencia;
+	
 	public Reserva(Profesor profesor, Aula aula, Permanencia permanencia) {
 		setProfesor(profesor);
 		setAula(aula);
@@ -15,7 +15,7 @@ public class Reserva {
 
 	public Reserva(Reserva reserva) {
 		if(reserva == null) {
-			throw new IllegalArgumentException("No se puede copiar una reserva nula.");
+			throw new NullPointerException("No se puede copiar una reserva nula.");
 		}else {
 		setProfesor(reserva.getProfesor());
 		setAula(reserva.getAula());
@@ -25,7 +25,7 @@ public class Reserva {
 
 	private void setProfesor(Profesor profesor) {
 		if(profesor == null) {
-			throw new IllegalArgumentException("La reserva debe estar a nombre de un profesor.");
+			throw new NullPointerException("La reserva debe estar a nombre de un profesor.");
 		}else {
 			this.profesor = profesor;
 		}
@@ -37,7 +37,7 @@ public class Reserva {
 
 	private void setAula(Aula aula) {
 		if(aula == null) {
-			throw new IllegalArgumentException("La reserva debe ser para un aula concreta.");
+			throw new NullPointerException("La reserva debe ser para un aula concreta.");
 		}else {
 			this.aula = aula;
 		}
@@ -49,7 +49,7 @@ public class Reserva {
 
 	private void setPermanencia(Permanencia permanencia) {
 		if(permanencia == null) {
-			throw new IllegalArgumentException("La reserva se debe hacer para una permanencia concreta.");
+			throw new NullPointerException("La reserva se debe hacer para una permanencia concreta.");
 		}else {
 			this.permanencia = permanencia;
 		}
@@ -57,6 +57,16 @@ public class Reserva {
 
 	public Permanencia getPermanencia() {
 		return permanencia;
+	}
+	
+	public static Reserva getReservaFicticia(Aula aula,Permanencia permanencia) {
+		return new Reserva(Profesor.getProfesorFicticio("profesorFicticio@gmail.com"), aula, permanencia);
+		
+	}
+	
+	public float getPuntos() {
+		return aula.getPuntos()+permanencia.getPuntos();
+		
 	}
 
 	@Override
