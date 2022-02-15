@@ -61,8 +61,8 @@ public class Aula {
 		return puestos*PUNTOS_POR_PUESTO;
 	}
 	
-	public static Aula getAulaFicticia(String aula) {
-		return new Aula("AulaFicticia",50);
+	public static Aula getAulaFicticia(String nombreAula) {
+		return new Aula(nombreAula,50);
 	}
 	@Override
 	public int hashCode() {
