@@ -62,7 +62,7 @@ public class Aula {
 	}
 	
 	public static Aula getAulaFicticia(String aula) {
-		return null;
+		return new Aula("AulaFicticia",50);
 	}
 	@Override
 	public int hashCode() {
