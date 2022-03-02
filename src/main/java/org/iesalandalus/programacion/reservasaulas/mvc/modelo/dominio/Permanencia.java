@@ -9,15 +9,13 @@ public abstract class Permanencia {
 	
 	public Permanencia(LocalDate dia) {
 		setDia(dia);
-//		setTramo(tramo);
 	}
 	
 	public Permanencia(Permanencia permanencia) {
 		if(permanencia == null) {
 			throw new NullPointerException("ERROR: No se puede copiar una permanencia nula.");
 		}else {
-		setDia(permanencia.getDia());
-//		setTramo(permanencia.getTramo());
+		setDia(permanencia.dia);
 		}
 	}
 	
@@ -33,18 +31,6 @@ public abstract class Permanencia {
 		}
 	}
 	
-//	public Tramo getTramo() {
-//		return tramo;
-//	}
-	
-//	private void setTramo(Tramo tramo) {
-//		if(tramo == null) {
-//			throw new IllegalArgumentException("El tramo de una permanencia no puede ser nulo.");
-//		}else {
-//			this.tramo = tramo;		
-//			}
-//	}
-	
 	public abstract int getPuntos();
 
 	@Override
@@ -56,10 +42,5 @@ public abstract class Permanencia {
 	@Override
 	public String toString() {
 		return "día=" + FORMATO_DIA.format(dia);
-	}
-	
-	
-	
-	
-	
+	}	
 }

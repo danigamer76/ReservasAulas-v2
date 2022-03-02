@@ -4,7 +4,7 @@ import java.util.Objects;
 
 public class Profesor {
 	private static final String ER_TELEFONO = "[6,9]\\d{8}";
-	private static final String ER_CORREO = "([a-z0-9]+(\\.?[a-z0-9])*)+@(([a-z]+)\\.([a-z]+))+";
+	private static final String ER_CORREO = "\\w+(?:\\.\\w+)*@\\w+\\.\\w{2,5}";
 	
 	private String nombre;
 	private String correo;
@@ -31,12 +31,12 @@ public class Profesor {
 			throw new NullPointerException("ERROR: No se puede copiar un profesor nulo.");
 		}else {
 			if(profesor.getTelefono() == null) {
-				setNombre(profesor.getNombre());
-				setCorreo(profesor.getCorreo());
+				setNombre(profesor.nombre);
+				setCorreo(profesor.correo);
 			}else {
-				setNombre(profesor.getNombre());
-				setCorreo(profesor.getCorreo());
-				setTelefono(profesor.getTelefono());
+				setNombre(profesor.nombre);
+				setCorreo(profesor.correo);
+				setTelefono(profesor.telefono);
 			}
 			
 		}

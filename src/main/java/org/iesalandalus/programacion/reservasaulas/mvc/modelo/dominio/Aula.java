@@ -19,8 +19,8 @@ public class Aula {
 		if(aula == null) {
 			throw new NullPointerException("ERROR: No se puede copiar un aula nula.");
 		}else {
-			setNombre(aula.getNombre());
-			setPuestos(aula.getPuestos());
+			setNombre(aula.nombre);
+			setPuestos(aula.puestos);
 		}
 	}
 

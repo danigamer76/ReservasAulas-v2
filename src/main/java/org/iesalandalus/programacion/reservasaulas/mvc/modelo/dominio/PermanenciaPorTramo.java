@@ -14,7 +14,7 @@ public class PermanenciaPorTramo extends Permanencia {
 
 	public PermanenciaPorTramo(PermanenciaPorTramo permanenciaPorTramo) {
 		super(permanenciaPorTramo);
-		setTramo(permanenciaPorTramo.getTramo());
+		setTramo(permanenciaPorTramo.tramo);
 	}
 	
 	public Tramo getTramo() {
