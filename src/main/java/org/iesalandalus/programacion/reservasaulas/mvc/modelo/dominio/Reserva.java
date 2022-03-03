@@ -1,9 +1,6 @@
 package org.iesalandalus.programacion.reservasaulas.mvc.modelo.dominio;
 
-import java.text.DecimalFormat;
-import java.text.DecimalFormatSymbols;
 import java.time.LocalDate;
-import java.time.LocalTime;
 import java.util.Objects;
 
 public class Reserva {
@@ -55,10 +52,10 @@ public class Reserva {
 		if(permanencia == null) {
 			throw new NullPointerException("ERROR: La reserva se debe hacer para una permanencia concreta.");
 		}else {
-			if(permanencia.getPuntos() == 3) {
-				this.permanencia = new PermanenciaPorHora((PermanenciaPorHora) permanencia);
-			}else {
-				this.permanencia = new PermanenciaPorTramo((PermanenciaPorTramo) permanencia);
+				if(permanencia.getPuntos() == 3) {
+					this.permanencia = new PermanenciaPorHora((PermanenciaPorHora) permanencia);
+				}else {
+					this.permanencia = new PermanenciaPorTramo((PermanenciaPorTramo) permanencia);
 			}
 		}
 	}
