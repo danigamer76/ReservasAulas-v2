@@ -6,8 +6,9 @@ import java.util.List;
 
 import javax.naming.OperationNotSupportedException;
 import org.iesalandalus.programacion.reservasaulas.mvc.modelo.dominio.Aula;
+import org.iesalandalus.programacion.reservasaulas.mvc.modelo.negocio.IAulas;
 
-public class Aulas {
+public class Aulas implements IAulas{
 	
 	private List<Aula> coleccionAulas;
 

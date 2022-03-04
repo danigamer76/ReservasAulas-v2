@@ -4,25 +4,25 @@ import java.util.List;
 
 import javax.naming.OperationNotSupportedException;
 
-import org.iesalandalus.programacion.reservasaulas.mvc.controlador.Controlador;
+import org.iesalandalus.programacion.reservasaulas.mvc.controlador.IControlador;
 import org.iesalandalus.programacion.reservasaulas.mvc.modelo.dominio.Aula;
 import org.iesalandalus.programacion.reservasaulas.mvc.modelo.dominio.Permanencia;
 import org.iesalandalus.programacion.reservasaulas.mvc.modelo.dominio.Profesor;
 import org.iesalandalus.programacion.reservasaulas.mvc.modelo.dominio.Reserva;
 
-public class Vista {
+public class Vista implements IVista{
 
 	private static final String ERROR = "";
 //	private static final String NOMBRE_VALIDO = "";
 //	private static final String CORREO_VALIDO = "";
 
-	private Controlador controlador;
+	private IControlador controlador;
 
 	public Vista() {
 		Opcion.setVista(this);
 	}
 
-	public void setControlador(Controlador controlador) {
+	public void setControlador(IControlador controlador) {
 		this.controlador = controlador;
 	}
 
@@ -148,7 +148,7 @@ public class Vista {
 	public void realizarReserva() {
 		Consola.mostrarCabecera("Realizar Reserva");
 		try {
-			Profesor profesor = Consola.leerProfesor();
+//			Profesor profesor = Consola.leerProfesor();
 			Reserva reserva = Consola.leerReserva();
 			controlador.realizarReserva(reserva);
 			System.out.println("Reserva realizada correctamente");
@@ -160,7 +160,7 @@ public class Vista {
 	public void anularReserva() {
 		Consola.mostrarCabecera("Anular Reserva");
 		try {
-			Profesor profesor = Consola.leerProfesor();
+//			Profesor profesor = Consola.leerProfesor();
 			Reserva reserva = Consola.leerReservaFicticia();
 			controlador.anularReserva(reserva);
 			System.out.println("Reserva anulada correctamente.");
@@ -210,7 +210,7 @@ public class Vista {
 	public void consultarDisponibilidad() {
 		Consola.mostrarCabecera("Consultar Disponibilidad");
 		Aula aula = Consola.leerAula();
-		Permanencia permanencia = new Permanencia(Consola.leerDia(), Consola.leerTramo());
+		Permanencia permanencia = Consola.leerPermanencia();
 		if(controlador.consultarDisponibilidad(aula,permanencia)) {
 			System.out.println(aula + " se encuentra disponible el dia "+permanencia.getDia()+".");
 		}else {
